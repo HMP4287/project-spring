@@ -32,6 +32,8 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile('org.projectlombok:lombok')
 //    implementation 'junit:junit:4.12' 테스트 실패 문제 해결
 }
 

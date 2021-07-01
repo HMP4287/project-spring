@@ -20,7 +20,7 @@ public class HelloControllerTest {
     @Autowired // 스프링이 관리하는, 빈을 주입받는다.
     private MockMvc mvc; // 스프링 MVC테스트의 시작.  HTTP GET, POST 등 API 테스트 가능해짐
 
-    // 세팅에서 gradle-> test를 intellij 로 실행으로 변경하여 해결
+    // 세팅에서 gradle-> test를 intellij 로 실행으로 변경하여 해
     @Test
     public void hello가_리턴된다() throws Exception {
         String hello = "hello";
@@ -28,8 +28,8 @@ public class HelloControllerTest {
         System.out.println(hello);
 
         mvc.perform(get("/hello")) // MockMvc를 통해 /hello주소로 HTTP GET 요청 한다. 체이닝 지원되어 여러 검증 기능 이어서 선언 가능
-            .andExpect(status().isOk()) // HTTP Header Status check ex) 200, 404, ..
+            .andExpect(status().isOk()) // HTTP Header Status check ex) 200
             .andExpect(content().string(hello));// 응답 본문의 내용 검사. 컨트롤러에서 헬로를 리턴하기 떄문에 그 값이 맞는지 검증
     }
-    // MockMvc? && RunWith &&  @SpringBootApplication
+
 }
