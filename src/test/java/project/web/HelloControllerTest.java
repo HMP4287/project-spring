@@ -22,7 +22,7 @@ public class HelloControllerTest {
     @Autowired // 스프링이 관리하는, 빈을 주입받는다.
     private MockMvc mvc; // 스프링 MVC테스트의 시작.  HTTP GET, POST 등 API 테스트 가능해짐
 
-    // 세팅에서 gradle-> test를 intellij 로 실행으로 변경하여 해결
+    // 세팅에서 gradle-> test를 intellij 로 실행으로 변경하여 해
     @Test
     public void hello가_리턴된다() throws Exception {
         String hello = "hello";
