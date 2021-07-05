@@ -34,3 +34,4 @@ public class Posts {
         this.author = author;
     }
 }
+
