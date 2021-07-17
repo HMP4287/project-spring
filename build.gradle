@@ -38,8 +38,10 @@ dependencies {
     // Spring Data JPA 사용 위한 의존성 등록
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('com.h2database:h2')
-    
 //    implementation 'junit:junit:4.12' 테스트 실패 문제 해결
+
+    // 머스테치 편하게 사용하기 위해 의존성 주입
+    compile('org.springframework.boot:spring-boot-starter-mustache')
 }
 
 test {
