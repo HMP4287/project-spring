@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import project.domain.posts.Posts;
 import project.domain.posts.PostsRepository;
+import project.web.dto.PostsDeleteRequestDto;
 import project.web.dto.PostsSaveRequestDto;
 import project.web.dto.PostsUpdateRequestDto;
 
@@ -96,9 +97,41 @@ public class PostsApiControllerTest {
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
+    }
 
+    @Test
+    public void Posts_삭제된다() throws Exception {
+        // given
+        Posts savedPosts = postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
+//        Posts savedPosts2 = postsRepository.save(Posts.builder()
+//                .title("title")
+//                .content("content")
+//                .author("author")
+//                .build());
 
+        Long deleteId = savedPosts.getId();
 
+        PostsDeleteRequestDto requestDto = PostsDeleteRequestDto.builder()
+                .id(deleteId)
+                .build();
+
+        String url = "http://localhost:" + port + "/api/v1/posts/" + deleteId;
+        HttpEntity<PostsDeleteRequestDto> requestEntity = new HttpEntity<>(requestDto);
+
+        // when 삭제 요청 보내고 나서,
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, Long.class);
+
+        // then 남아있나 확인
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isGreaterThan(0L);
+
+        List<Posts> all = postsRepository.findAll();
+
+        assertThat(all.size()).isEqualTo(0);
 
     }
 }

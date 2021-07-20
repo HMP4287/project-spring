@@ -27,4 +27,12 @@ public class PostsApiController {
     public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
     }
+
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id) {
+//        return postsService.delete(id); // 왜 이처럼 하지 않는가, null 떄매 ?
+        postsService.delete(id);
+        return id;
+    }
+
 }
