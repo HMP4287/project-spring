@@ -31,22 +31,15 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-
     compile('org.projectlombok:lombok')
-
-    // Spring Data JPA 사용 위한 의존성 등록
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('com.h2database:h2')
-//    implementation 'junit:junit:4.12' 테스트 실패 문제 해결
-
-    // 머스테치 편하게 사용하기 위해 의존성 주입
     compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('com.h2database:h2')
 
-    // 스프링 시큐리티 관련 의존성
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     compile('org.springframework.session:spring-session-jdbc')
 
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 test {
