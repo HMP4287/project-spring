@@ -1,0 +1,20 @@
+language: java
+jdk:
+  - openjdk11 # not 8  oraclejdk11 openjdk11
+
+branches:
+  only:
+    - master # master O main X
+
+# Travis CI server's Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+script: "./gradlew clean build'
+
+# CI 실행 완료시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - 'hyunmins4287@gmail.com'
