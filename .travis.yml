@@ -44,3 +44,5 @@ notifications:
   email:
     recipients:
       - hyunmins4287@gmail.com
+
+# 배포용 더미 주석
