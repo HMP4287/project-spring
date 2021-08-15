@@ -28,7 +28,16 @@ deploy:
     acl: private # zip 파일 접근을 private으로
     local_dir: deploy # before_deploy 에서 mkdir 한것
     wait-until-deployed: true
-
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # travis repo setting value
+    secret_access_key: $AWS_SECRET_KEY # travis repo setting value
+    bucket: project-spring-build
+    key: project-spring.zip
+    bundle_type: zip
+    application: project-spring
+    deployment_group: project-spring-group
+    region: ap-northeast-2
+    wait-until-deployed: true
 
 # CI 실행 완료시 메일로 알람
 notifications:
