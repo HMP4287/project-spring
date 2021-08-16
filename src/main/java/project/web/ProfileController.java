@@ -1,4 +1,4 @@
-package project.web.dto;
+package project.web;
 
 
 import lombok.RequiredArgsConstructor;
