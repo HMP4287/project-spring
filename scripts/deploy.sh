@@ -35,6 +35,3 @@ nohup java -jar \
         -Dspring.profiles.active=local-group \
          $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
 
-
-
-
