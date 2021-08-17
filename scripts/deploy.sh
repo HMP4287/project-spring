@@ -32,7 +32,7 @@ chmod +x $JAR_NAME
 # local group 가져오게 변경 (before real -> local-group )
 nohup java -jar \
         -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
-        -Dspring.profiles.active= local-group\
+        -Dspring.profiles.active=local-group \
          $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
 
 
